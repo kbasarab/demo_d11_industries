@@ -1,0 +1,6 @@
+name: test-term-drupal-11
+recipe: pantheon
+config:
+  framework: drupal8
+  site: test-term-drupal-11
+  id: 887d511d-c337-4761-b476-ef70aaa131a5

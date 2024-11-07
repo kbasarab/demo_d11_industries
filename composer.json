@@ -1,6 +1,6 @@
 {
-    "name": "pantheon-upstreams/drupal-composer-managed",
-    "description": "Install Drupal 9 with Composer on Pantheon.",
+    "name": "custom-upstream-demo/isnetworld",
+    "description": "Drupal 11 custom upstream demo",
     "type": "project",
     "license": "MIT",
     "repositories": [
@@ -20,7 +20,8 @@
         "drupal/core-recommended": "^11",
         "pantheon-systems/drupal-integrations": "^11",
         "cweagans/composer-patches": "^1.7",
-        "drush/drush": "^13"
+        "drush/drush": "^13",
+        "pantheon-systems/upstream-management": "^1.0"
     },
     "require-dev": {
         "drupal/core-dev": "^11"
@@ -79,7 +80,9 @@
             "drupal/core-composer-scaffold": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "tbachert/spi": true,
+            "pantheon-systems/upstream-management": true
         }
     }
 }

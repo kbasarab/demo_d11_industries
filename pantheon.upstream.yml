@@ -6,6 +6,11 @@ php_version: 8.3
 database:
   version: 10.6
 drush_version: 10
+enforce_https: full
+object_cache:
+  version: 6.2
+search:
+  version: 8
 build_step: true
 protected_web_paths:
   - /private/

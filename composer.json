@@ -13,7 +13,7 @@
             "url": "upstream-configuration"
         },
         {
-            "url": "https://github.com/pantheon-systems/pcc-drupal-module.git",
+            "url": "https://github.com/danny2p/pcc-drupal-module.git",
             "type": "git"
         },
         {

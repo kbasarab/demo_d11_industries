@@ -26,7 +26,8 @@
         "cweagans/composer-patches": "^1.7",
         "drush/drush": "^13",
         "pantheon-systems/upstream-management": "*",
-        "pantheon-systems/pcx_connect": "dev-main"
+        "pantheon-systems/pcx_connect": "dev-main",
+        "drupal/pantheon_advanced_page_cache": "^2.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

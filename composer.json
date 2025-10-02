@@ -23,7 +23,8 @@
     ],
     "require": {
         "pantheon-upstreams/upstream-configuration": "dev-main",
-        "pantheon-systems/upstream-management": "^1.0"
+        "pantheon-systems/upstream-management": "^1.0",
+        "drupal/admin_toolbar": "^3.6"
     },
     "require-dev": {
         "drupal/core-dev": "^11"

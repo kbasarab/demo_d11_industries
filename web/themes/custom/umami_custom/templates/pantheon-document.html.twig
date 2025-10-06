@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a pantheon document entity.
+ *
+ * This template is used when viewing a canonical pantheon document page,
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.label'.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_pantheon_document()
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--view-mode-full'
+
+  ]
+%}
+{{ attach_library('umami/classy.node') }}
+
+<article{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+  {% if content.label %}
+      <header class="node__header">
+        <h1 class="page-title">
+          {{ content.label }}
+        </h1>
+      </header>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}<span class="by-author">by {{ author_name }}</span> {{ created_date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content }}
+  </div>
+
+</article>

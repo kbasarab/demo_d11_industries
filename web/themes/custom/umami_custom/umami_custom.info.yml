@@ -1,0 +1,24 @@
+name: Umami Custom
+type: theme
+description: "Tiny sub-theme to layer custom CSS over the Umami theme."
+package: Custom
+base theme: umami
+core_version_requirement: ^11
+libraries:
+  - umami_custom/global-styling
+
+regions:
+  pre_header: Pre-header
+  header: Header
+  highlighted: Highlighted
+  tabs: Tabs
+  banner_top: 'Banner Top'
+  breadcrumbs: Breadcrumbs
+  page_title: 'Page Title'
+  content: Content
+  sidebar: Sidebar
+  content_bottom: 'Content Bottom'
+  footer: Footer
+  bottom: Bottom
+  page_top: 'Page top' # Needed by Drupal Core
+  page_bottom: 'Page bottom' # Needed by Drupal Core

@@ -1,0 +1,22 @@
+/* Pull quote webstyle */
+.pull-quote {
+  display: inline-block;
+  font-family: "Aleo", serif;
+  font-style: italic;
+  font-size: 1.875rem;
+  line-height: 1.6;
+  border-left: 4px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #9b0b9d, #5700af);
+  padding: 48px 0 48px 48px;
+  margin: .5em 0;
+}
+
+p.normal-text {
+  margin-bottom: 1.28rem !important;
+}
+
+.button--primary {
+  background-color: yellow;
+  color: black;
+}

@@ -1398,56 +1398,6 @@
             }
         },
         {
-            "name": "drupal/bootstrap5",
-            "version": "4.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/bootstrap5.git",
-                "reference": "4.0.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap5-4.0.6.zip",
-                "reference": "4.0.6",
-                "shasum": "600973f96a3ed1eb54b133d96b25b55f8ea58f9a"
-            },
-            "require": {
-                "drupal/core": "^10.1 || ^11.0"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "4.0.6",
-                    "datestamp": "1759216769",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Vladimir Roudakov (vladimiraus)",
-                    "homepage": "https://www.drupal.org/u/vladimiraus",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "vladimiraus",
-                    "homepage": "https://www.drupal.org/user/673120"
-                }
-            ],
-            "description": "Master theme using Bootstrap 5: powerful front-end framework for faster and easier web development.",
-            "homepage": "https://www.drupal.org/project/bootstrap5",
-            "support": {
-                "source": "https://git.drupalcode.org/project/bootstrap5",
-                "issues": "https://www.drupal.org/project/issues/bootstrap5"
-            }
-        },
-        {
             "name": "drupal/core",
             "version": "11.2.4",
             "source": {
@@ -1849,126 +1799,6 @@
             }
         },
         {
-            "name": "drupal/dxpr_theme",
-            "version": "6.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/dxpr_theme.git",
-                "reference": "6.0.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dxpr_theme-6.0.9.zip",
-                "reference": "6.0.9",
-                "shasum": "58228bd887475b1a75e521a14f6292d797051e20"
-            },
-            "require": {
-                "drupal/bootstrap5": "^3 || ^4",
-                "drupal/core": "^9.3 || ^10 || ^11",
-                "drupal/dxpr_theme_helper": "*",
-                "drupal/media_library_form_element": "^2.1"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "6.0.9",
-                    "datestamp": "1759847461",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "DXPR",
-                    "homepage": "https://dxpr.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "jurriaanroelofs",
-                    "homepage": "https://www.drupal.org/user/52638"
-                }
-            ],
-            "description": "Low-code Drupal Framework Theme.",
-            "homepage": "https://www.drupal.org/project/dxpr_theme",
-            "keywords": [
-                "Bootstrap",
-                "DXPR",
-                "Drupal",
-                "Framework",
-                "Marketing",
-                "Theme"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/dxpr_theme",
-                "documentation": "https:/.dxpr.com/hc",
-                "issues": "https://dxpr.com/hc/tickets"
-            }
-        },
-        {
-            "name": "drupal/dxpr_theme_helper",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/dxpr_theme_helper.git",
-                "reference": "2.1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dxpr_theme_helper-2.1.1.zip",
-                "reference": "2.1.1",
-                "shasum": "ca86e955570ee90754f1b468bc6f013611f3d7b5"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10 || ^11"
-            },
-            "require-dev": {
-                "drush/drush": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.1",
-                    "datestamp": "1759322129",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "DXPR",
-                    "homepage": "https://dxpr.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Helper module  to support DXPR Theme.",
-            "homepage": "https://www.drupal.org/project/dxpr_theme_helper",
-            "keywords": [
-                "Bootstrap",
-                "DXPR",
-                "Drupal",
-                "Framework",
-                "Marketing",
-                "Theme"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/dxpr_theme_helper",
-                "documentation": "https:/.dxpr.com/hc",
-                "issues": "https://dxpr.com/hc/tickets"
-            }
-        },
-        {
             "name": "drupal/entity_reference_revisions",
             "version": "1.12.0",
             "source": {
@@ -2105,77 +1935,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/key",
                 "issues": "http://drupal.org/project/key"
-            }
-        },
-        {
-            "name": "drupal/media_library_form_element",
-            "version": "2.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/media_library_form_element.git",
-                "reference": "2.1.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_library_form_element-2.1.4.zip",
-                "reference": "2.1.4",
-                "shasum": "575d5a69e4b9e310336aeb3ee169ec2d7c8b3f2b"
-            },
-            "require": {
-                "drupal/core": "^10.3 || ^11"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.4",
-                    "datestamp": "1759255782",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Kim Kennof",
-                    "homepage": "https://www.drupal.org/u/nightlife2008",
-                    "email": "kim.kennof@gmail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "AUSY, a randstad company",
-                    "homepage": "https://www.ausy.be",
-                    "email": "info@ausy.be",
-                    "role": "Sponsor"
-                },
-                {
-                    "name": "mark_fullmer",
-                    "homepage": "https://www.drupal.org/user/2612816"
-                },
-                {
-                    "name": "nightlife2008",
-                    "homepage": "https://www.drupal.org/user/333515"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                }
-            ],
-            "description": "This module provides a Media Library Form API element to be used in all sorts of forms.",
-            "homepage": "https://www.drupal.org/project/media_library_form_element",
-            "keywords": [
-                "Drupal",
-                "Form API",
-                "Media",
-                "Media Library"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/media_library_form_element",
-                "issues": "https://www.drupal.org/project/issues/media_library_form_element"
             }
         },
         {
@@ -3899,7 +3658,7 @@
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
-                "reference": "f343971fcb7728adabcad84641743ab7f10f5c0f"
+                "reference": "74418ae472d60d5e99d28fa6ca0a7141f15e8526"
             },
             "require": {
                 "composer/installers": "^1.9",
@@ -3909,9 +3668,6 @@
                 "drupal/ai_provider_openai": "^1.1",
                 "drupal/core-composer-scaffold": "11.2.4",
                 "drupal/core-recommended": "11.2.4",
-                "drupal/dxpr_theme": "^6.0",
-                "drupal/dxpr_theme_helper": "^2.1",
-                "drupal/media_library_form_element": "^2.0",
                 "drupal/metatag": "^2.1",
                 "drupal/pantheon_advanced_page_cache": "^2.3",
                 "drupal/paragraphs": "^1.18",

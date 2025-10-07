@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.program
+  module:
+    - text
+id: node.program.body
+field_name: body
+entity_type: node
+bundle: program
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_with_summary

@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -16,17 +17,10 @@ use Drupal\file\Entity\File;
  * Implements hook_install().
  */
 function university_demo_install() {
-  // Set the default and admin themes.
+  // Set the default theme.
   \Drupal::configFactory()
     ->getEditable('system.theme')
-    ->set('default', 'dxpr_theme')
-    ->set('admin', 'claro')
-    ->save(TRUE);
-
-  // Enable the admin theme for editing content.
-  \Drupal::configFactory()
-    ->getEditable('node.settings')
-    ->set('use_admin_theme', TRUE)
+    ->set('default', 'university_bootstrap')
     ->save(TRUE);
 
   // Set front page to /home.
@@ -60,10 +54,6 @@ function university_demo_install() {
  */
 function university_demo_create_content_types() {
   $types = [
-    'page' => [
-      'name' => 'Basic page',
-      'description' => 'Use basic pages for your static content.',
-    ],
     'program' => [
       'name' => 'Academic Program',
       'description' => 'Information about academic programs and degrees.',
@@ -86,6 +76,24 @@ function university_demo_create_content_types() {
         'description' => $config['description'],
       ]);
       $type->save();
+      
+      // Add body field to content types that need it
+      if (in_array($id, ['program', 'news', 'event'])) {
+        // Check if body field instance exists for this content type
+        $field = \Drupal::entityTypeManager()->getStorage('field_config')->load("node.{$id}.body");
+        if (!$field) {
+          // Create body field instance for this content type
+          $field = \Drupal::entityTypeManager()->getStorage('field_config')->create([
+            'field_name' => 'body',
+            'entity_type' => 'node',
+            'bundle' => $id,
+            'label' => 'Body',
+            'field_type' => 'text_with_summary',
+            'settings' => [],
+          ]);
+          $field->save();
+        }
+      }
     }
   }
 }
@@ -153,27 +161,123 @@ function university_demo_create_sample_content() {
   $programs = [
     [
       'title' => 'Computer Science',
-      'body' => 'Our Computer Science program provides students with a comprehensive foundation in computing theory and practical applications. Students learn programming, algorithms, data structures, and software engineering principles.',
+      'body' => '<h2>Program Overview</h2>
+<p>Our Computer Science program provides students with a comprehensive foundation in computing theory and practical applications. Students learn programming, algorithms, data structures, and software engineering principles.</p>
+
+<h3>What You\'ll Learn</h3>
+<ul>
+<li>Programming languages including Python, Java, and C++</li>
+<li>Data structures and algorithms</li>
+<li>Software engineering principles</li>
+<li>Database design and management</li>
+<li>Web development and mobile applications</li>
+<li>Artificial intelligence and machine learning</li>
+</ul>
+
+<h3>Career Opportunities</h3>
+<p>Graduates of our Computer Science program are prepared for careers as software developers, systems analysts, database administrators, and technology consultants. Our alumni work at leading tech companies including Google, Microsoft, and Amazon.</p>
+
+<h3>Admission Requirements</h3>
+<ul>
+<li>High school diploma or equivalent</li>
+<li>Strong mathematics background</li>
+<li>SAT/ACT scores</li>
+<li>Personal statement</li>
+</ul>',
     ],
     [
       'title' => 'Business Administration',
-      'body' => 'The Business Administration program prepares students for leadership roles in various industries. The curriculum covers management, marketing, finance, and strategic planning.',
+      'body' => '<h2>Program Overview</h2>
+<p>The Business Administration program prepares students for leadership roles in various industries. The curriculum covers management, marketing, finance, and strategic planning.</p>
+
+<h3>Core Curriculum</h3>
+<ul>
+<li>Principles of Management</li>
+<li>Marketing Strategy</li>
+<li>Financial Analysis</li>
+<li>Operations Management</li>
+<li>Business Ethics</li>
+<li>Strategic Planning</li>
+</ul>
+
+<h3>Specializations</h3>
+<p>Students can choose from specializations in Finance, Marketing, Human Resources, or International Business. Each specialization includes advanced coursework and practical experience.</p>
+
+<h3>Internship Opportunities</h3>
+<p>Our program includes mandatory internships with local and national companies, providing students with real-world experience and networking opportunities.</p>',
     ],
     [
       'title' => 'Engineering',
-      'body' => 'Our Engineering program offers specializations in mechanical, electrical, and civil engineering. Students gain hands-on experience through laboratory work and industry partnerships.',
+      'body' => '<h2>Program Overview</h2>
+<p>Our Engineering program offers specializations in mechanical, electrical, and civil engineering. Students gain hands-on experience through laboratory work and industry partnerships.</p>
+
+<h3>Specializations Available</h3>
+<ul>
+<li><strong>Mechanical Engineering:</strong> Design and manufacturing systems</li>
+<li><strong>Electrical Engineering:</strong> Power systems and electronics</li>
+<li><strong>Civil Engineering:</strong> Infrastructure and construction</li>
+</ul>
+
+<h3>Laboratory Facilities</h3>
+<p>Our state-of-the-art laboratories include computer-aided design workstations, materials testing equipment, and prototype development tools.</p>
+
+<h3>Industry Partnerships</h3>
+<p>We have partnerships with leading engineering firms that provide internship opportunities and capstone project sponsorships.</p>',
     ],
     [
       'title' => 'Liberal Arts',
-      'body' => 'The Liberal Arts program provides a broad education in humanities, social sciences, and natural sciences. Students develop critical thinking and communication skills.',
+      'body' => '<h2>Program Overview</h2>
+<p>The Liberal Arts program provides a broad education in humanities, social sciences, and natural sciences. Students develop critical thinking and communication skills.</p>
+
+<h3>Areas of Study</h3>
+<ul>
+<li>Literature and Writing</li>
+<li>History and Philosophy</li>
+<li>Social Sciences</li>
+<li>Natural Sciences</li>
+<li>Foreign Languages</li>
+</ul>
+
+<h3>Skills Development</h3>
+<p>Students develop essential skills in critical thinking, written and oral communication, research methods, and cultural awareness.</p>',
     ],
     [
       'title' => 'Medicine',
-      'body' => 'Our Medical program combines rigorous academic training with clinical experience. Students work with experienced physicians and researchers to develop their skills.',
+      'body' => '<h2>Program Overview</h2>
+<p>Our Medical program combines rigorous academic training with clinical experience. Students work with experienced physicians and researchers to develop their skills.</p>
+
+<h3>Pre-Medical Requirements</h3>
+<ul>
+<li>Bachelor\'s degree in science or related field</li>
+<li>MCAT scores</li>
+<li>Prerequisite courses in biology, chemistry, and physics</li>
+<li>Clinical experience</li>
+</ul>
+
+<h3>Clinical Rotations</h3>
+<p>Students complete clinical rotations in various medical specialties including internal medicine, surgery, pediatrics, and emergency medicine.</p>
+
+<h3>Research Opportunities</h3>
+<p>Our medical students have opportunities to participate in cutting-edge research projects alongside faculty members.</p>',
     ],
     [
       'title' => 'Education',
-      'body' => 'The Education program prepares future teachers and educational leaders. Students learn pedagogical theories and gain practical teaching experience.',
+      'body' => '<h2>Program Overview</h2>
+<p>The Education program prepares future teachers and educational leaders. Students learn pedagogical theories and gain practical teaching experience.</p>
+
+<h3>Teaching Specializations</h3>
+<ul>
+<li>Elementary Education</li>
+<li>Secondary Education</li>
+<li>Special Education</li>
+<li>Educational Leadership</li>
+</ul>
+
+<h3>Student Teaching</h3>
+<p>All education students complete a full semester of student teaching in local schools under the supervision of experienced teachers.</p>
+
+<h3>Certification</h3>
+<p>Upon graduation, students are eligible for state teaching certification in their chosen specialization.</p>',
     ],
   ];
 
@@ -194,15 +298,56 @@ function university_demo_create_sample_content() {
   $news_articles = [
     [
       'title' => 'New Research Center Opens',
-      'body' => 'The university has opened a new state-of-the-art research center focusing on sustainable energy solutions. The facility will support interdisciplinary research projects.',
+      'body' => '<p>The university has opened a new state-of-the-art research center focusing on sustainable energy solutions. The facility will support interdisciplinary research projects.</p>
+
+<h3>Facility Features</h3>
+<ul>
+<li>Advanced solar panel testing laboratory</li>
+<li>Wind energy simulation chamber</li>
+<li>Energy storage research facilities</li>
+<li>Collaborative research spaces</li>
+</ul>
+
+<h3>Research Focus Areas</h3>
+<p>The center will focus on developing innovative solutions for renewable energy generation, storage, and distribution. Faculty and students from engineering, physics, and environmental science will collaborate on groundbreaking research projects.</p>
+
+<h3>Industry Partnerships</h3>
+<p>Several leading energy companies have already committed to partnering with the center, providing funding and real-world applications for research findings.</p>',
     ],
     [
       'title' => 'Student Achievements Recognized',
-      'body' => 'Several students have been recognized for their outstanding academic achievements and community service contributions this semester.',
+      'body' => '<p>Several students have been recognized for their outstanding academic achievements and community service contributions this semester.</p>
+
+<h3>Academic Excellence Awards</h3>
+<ul>
+<li>Sarah Johnson - Computer Science, Dean\'s List</li>
+<li>Michael Chen - Engineering, Outstanding Research Award</li>
+<li>Emily Rodriguez - Business Administration, Leadership Excellence</li>
+</ul>
+
+<h3>Community Service Recognition</h3>
+<p>Over 200 students were recognized for their volunteer work in local communities, including tutoring programs, environmental cleanups, and food bank assistance.</p>
+
+<h3>Scholarship Recipients</h3>
+<p>Fifty students received merit-based scholarships totaling over $500,000 for the upcoming academic year.</p>',
     ],
     [
       'title' => 'Campus Expansion Plans',
-      'body' => 'The university has announced plans for a major campus expansion, including new residence halls and academic buildings to accommodate growing enrollment.',
+      'body' => '<p>The university has announced plans for a major campus expansion, including new residence halls and academic buildings to accommodate growing enrollment.</p>
+
+<h3>New Construction Projects</h3>
+<ul>
+<li>500-bed residence hall complex</li>
+<li>New engineering and technology building</li>
+<li>Expanded library and study spaces</li>
+<li>Student recreation and wellness center</li>
+</ul>
+
+<h3>Timeline</h3>
+<p>Construction is scheduled to begin in spring 2025, with completion expected by fall 2026. The projects will create over 200 construction jobs and support the university\'s goal of increasing enrollment by 25%.</p>
+
+<h3>Sustainability Features</h3>
+<p>All new buildings will be LEED certified and include solar panels, energy-efficient systems, and green building materials.</p>',
     ],
   ];
 

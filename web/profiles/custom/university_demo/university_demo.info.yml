@@ -27,9 +27,7 @@ dependencies:
   - drupal:metatag
   - drupal:admin_toolbar
   - drupal:views_infinite_scroll
-  - dxpr_theme_helper
-  - media_library_form_element
 themes:
-  - dxpr_theme
+  - university_bootstrap
 libraries:
   - university_demo/university-homepage

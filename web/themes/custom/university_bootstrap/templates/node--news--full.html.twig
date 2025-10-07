@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Theme override to display a news node in full view mode.
+ */
+#}
+<div class="news-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <article{{ attributes.addClass('news-content') }}>
+          <header class="news-header mb-4">
+            <h1 class="news-title">{{ label }}</h1>
+            <div class="news-meta mb-4">
+              <span class="news-date">
+                <i class="fas fa-calendar"></i> {{ node.createdtime|date('F j, Y') }}
+              </span>
+              <span class="news-author">
+                <i class="fas fa-user"></i> University Communications
+              </span>
+            </div>
+            {% if content.field_hero_image|render %}
+              <div class="news-hero-image mb-4">
+                {{ content.field_hero_image }}
+              </div>
+            {% endif %}
+          </header>
+          
+          <div class="news-body">
+            {% if content.body %}
+              {{ content.body }}
+            {% else %}
+              <div class="alert alert-info">
+                <p>Content is being loaded. If you don't see the article details, please refresh the page.</p>
+              </div>
+            {% endif %}
+          </div>
+          
+          <footer class="news-footer mt-5">
+            <div class="row">
+              <div class="col-md-6">
+                <a href="/news" class="btn btn-outline-primary">
+                  <i class="fas fa-arrow-left"></i> Back to News
+                </a>
+              </div>
+              <div class="col-md-6 text-md-end">
+                <a href="/contact" class="btn btn-primary">
+                  Contact Us <i class="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

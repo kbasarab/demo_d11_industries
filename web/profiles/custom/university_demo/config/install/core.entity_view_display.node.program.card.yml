@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.program.body
+    - field.field.node.program.field_hero_image
+    - node.type.program
+  module:
+    - text
+    - user
+id: node.program.card
+targetEntityType: node
+bundle: program
+mode: card
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    region: content
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+  field_hero_image:
+    label: hidden
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: medium
+      image_link: content
+    third_party_settings: {  }
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

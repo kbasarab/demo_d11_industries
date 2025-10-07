@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override to display a program node in full view mode.
+ */
+#}
+<div class="program-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <article{{ attributes.addClass('program-content') }}>
+          <header class="program-header mb-5">
+            <h1 class="program-title">{{ label }}</h1>
+            {% if content.field_hero_image|render %}
+              <div class="program-hero-image mb-4">
+                {{ content.field_hero_image }}
+              </div>
+            {% endif %}
+          </header>
+          
+          <div class="program-body">
+            {% if content.body %}
+              {{ content.body }}
+            {% else %}
+              <div class="alert alert-info">
+                <p>Content is being loaded. If you don't see the program details, please refresh the page.</p>
+              </div>
+            {% endif %}
+          </div>
+          
+          <footer class="program-footer mt-5">
+            <div class="row">
+              <div class="col-md-6">
+                <a href="/programs" class="btn btn-outline-primary">
+                  <i class="fas fa-arrow-left"></i> Back to Programs
+                </a>
+              </div>
+              <div class="col-md-6 text-md-end">
+                <a href="/admissions" class="btn btn-primary">
+                  Apply Now <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

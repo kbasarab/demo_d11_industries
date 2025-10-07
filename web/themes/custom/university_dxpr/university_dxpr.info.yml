@@ -1,0 +1,26 @@
+name: University DXPR
+type: theme
+description: 'University demo theme based on DXPR theme'
+core_version_requirement: ^11
+base theme: dxpr_theme
+dependencies:
+  - drupal:file
+  - dxpr_theme_helper:dxpr_theme_helper
+  - media_library_form_element:media_library_form_element
+libraries:
+  - university_dxpr/university-homepage
+regions:
+  secondary_header: 'Secondary Header'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  highlighted: 'Hero Region'
+  page_title: 'Page Title'
+  help: 'Help'
+  content_top: 'Content Top'
+  content: 'Content'
+  content_bottom: 'Content Bottom'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'

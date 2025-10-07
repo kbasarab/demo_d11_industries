@@ -1,0 +1,188 @@
+{#
+/**
+ * @file
+ * Theme override to display the front page.
+ */
+#}
+<div class="university-homepage">
+  {# Hero Section #}
+  <section class="hero-section bg-primary text-white py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-4">{{ 'Transform Your Future'|t }}</h1>
+          <p class="lead mb-4">{{ 'Discover world-class education and research opportunities at our prestigious university.'|t }}</p>
+          <div class="hero-buttons">
+            <a href="/programs" class="btn btn-light btn-lg me-3">{{ 'Explore Programs'|t }}</a>
+            <a href="/admissions" class="btn btn-outline-light btn-lg">{{ 'Apply Now'|t }}</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image">
+            <img src="/themes/contrib/bootstrap5/logo.svg" alt="University Campus" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Stats Section #}
+  <section class="stats-section py-5 bg-light">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3 mb-4">
+          <div class="stat-item">
+            <h3 class="display-6 text-primary fw-bold">15,000+</h3>
+            <p class="text-muted">{{ 'Students'|t }}</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="stat-item">
+            <h3 class="display-6 text-primary fw-bold">200+</h3>
+            <p class="text-muted">{{ 'Programs'|t }}</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="stat-item">
+            <h3 class="display-6 text-primary fw-bold">95%</h3>
+            <p class="text-muted">{{ 'Graduation Rate'|t }}</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="stat-item">
+            <h3 class="display-6 text-primary fw-bold">150+</h3>
+            <p class="text-muted">{{ 'Countries'|t }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Programs Section #}
+  <section class="programs-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <h2 class="display-5 fw-bold">{{ 'Academic Programs'|t }}</h2>
+          <p class="lead text-muted">{{ 'Choose from our diverse range of undergraduate and graduate programs'|t }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Computer Science</h5>
+              <div class="card-text flex-grow-1">
+                <p>Our Computer Science program provides students with a comprehensive foundation in computing theory and practical applications.</p>
+              </div>
+              <div class="mt-auto">
+                <a href="/node/2" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Business Administration</h5>
+              <div class="card-text flex-grow-1">
+                <p>The Business Administration program prepares students for leadership roles in various industries.</p>
+              </div>
+              <div class="mt-auto">
+                <a href="/node/3" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Engineering</h5>
+              <div class="card-text flex-grow-1">
+                <p>Our Engineering program offers specializations in mechanical, electrical, and civil engineering.</p>
+              </div>
+              <div class="mt-auto">
+                <a href="/node/4" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center mt-4">
+          <a href="/programs" class="btn btn-primary btn-lg">{{ 'View All Programs'|t }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# News Section #}
+  <section class="news-section py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5">
+          <h2 class="display-5 fw-bold">{{ 'Latest News'|t }}</h2>
+          <p class="lead text-muted">{{ 'Stay updated with campus news and events'|t }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">New Research Center Opens</h5>
+              <small class="text-muted mb-2">October 7, 2024</small>
+              <div class="card-text flex-grow-1">
+                <p>The university has opened a new state-of-the-art research center focusing on sustainable energy solutions.</p>
+              </div>
+              <div class="mt-auto">
+                <a href="/node/5" class="btn btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Student Achievements Recognized</h5>
+              <small class="text-muted mb-2">October 5, 2024</small>
+              <div class="card-text flex-grow-1">
+                <p>Several students have been recognized for their outstanding academic achievements and community service contributions.</p>
+              </div>
+              <div class="mt-auto">
+                <a href="/node/6" class="btn btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Campus Expansion Plans</h5>
+              <small class="text-muted mb-2">October 3, 2024</small>
+              <div class="card-text flex-grow-1">
+                <p>The university has announced plans for a major campus expansion, including new residence halls and academic buildings.</p>
+              </div>
+              <div class="mt-auto">
+                <a href="/node/7" class="btn btn-outline-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# CTA Section #}
+  <section class="cta-section py-5 bg-primary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="display-5 fw-bold mb-4">{{ 'Ready to Start Your Journey?'|t }}</h2>
+          <p class="lead mb-4">{{ 'Join thousands of students who have transformed their lives through education at our university.'|t }}</p>
+          <a href="/admissions" class="btn btn-light btn-lg me-3">{{ 'Apply Today'|t }}</a>
+          <a href="/contact" class="btn btn-outline-light btn-lg">{{ 'Contact Us'|t }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,7 @@
+university-homepage:
+  css:
+    theme:
+      css/university-homepage.css: {}
+  dependencies:
+    - core/drupal
+    - dxpr_theme/dxpr_theme

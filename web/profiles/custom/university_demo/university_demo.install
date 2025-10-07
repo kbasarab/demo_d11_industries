@@ -151,7 +151,7 @@ function university_demo_create_sample_content() {
     'title' => 'Welcome to Our University',
     'body' => [
       'value' => '<div class="hero-section"><h1>Transform Your Future</h1><p>Discover world-class education and research opportunities.</p></div>',
-      'format' => 'full_html',
+      'format' => 'filtered_html',
     ],
     'status' => 1,
   ]);
@@ -287,7 +287,7 @@ function university_demo_create_sample_content() {
       'title' => $program_data['title'],
       'body' => [
         'value' => $program_data['body'],
-        'format' => 'full_html',
+        'format' => 'filtered_html',
       ],
       'status' => 1,
     ]);
@@ -357,7 +357,7 @@ function university_demo_create_sample_content() {
       'title' => $news_data['title'],
       'body' => [
         'value' => $news_data['body'],
-        'format' => 'full_html',
+        'format' => 'filtered_html',
       ],
       'status' => 1,
     ]);
@@ -386,7 +386,7 @@ function university_demo_create_sample_content() {
       'title' => $event_data['title'],
       'body' => [
         'value' => $event_data['body'],
-        'format' => 'full_html',
+        'format' => 'filtered_html',
       ],
       'status' => 1,
     ]);

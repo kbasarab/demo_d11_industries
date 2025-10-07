@@ -23,18 +23,21 @@
         "drupal/admin_toolbar": "^3.6",
         "drupal/ai": "^1.1",
         "drupal/ai_provider_openai": "^1.1",
-        "drupal/core-composer-scaffold": "^11",
-        "drupal/core-recommended": "^11",
+        "drupal/core-composer-scaffold": "11.2.4",
+        "drupal/core-recommended": "11.2.4",
         "drupal/dxpr_theme": "^6.0",
         "drupal/dxpr_theme_helper": "^2.1",
+        "drupal/media_library_form_element": "^2.0",
         "drupal/metatag": "^2.1",
         "drupal/pantheon_advanced_page_cache": "^2.3",
         "drupal/paragraphs": "^1.18",
+        "drupal/pathauto": "^1.14",
+        "drupal/token": "^1.16",
+        "drupal/views_infinite_scroll": "^2.0",
         "pantheon-systems/drupal-integrations": "^11",
-        "pantheon-systems/pcx_connect": "dev-main",
-        "pantheon-systems/upstream-management": "*"
+        "pantheon-systems/upstream-management": "^1.0"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "extra": {
         "_README": "To make a custom upstream, clone this repository and add any dependencies to be provided by this upstream to this composer.json file. Leave the root-level composer.json file for the exclusive use of each individual site; do not modify it after your custom upstream has been published. See https://pantheon.io/docs/create-custom-upstream for more information."

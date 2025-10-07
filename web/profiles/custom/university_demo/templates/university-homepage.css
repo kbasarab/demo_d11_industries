@@ -1,0 +1,191 @@
+/* University Demo Homepage Styles */
+
+.university-homepage {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-section .lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-buttons .btn {
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Stats Section */
+.stats-section {
+  background-color: #f8f9fa;
+}
+
+.stat-item h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Programs Section */
+.programs-section {
+  padding: 80px 0;
+}
+
+.programs-section h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.programs-section .lead {
+  color: #6c757d;
+  font-size: 1.2rem;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-title {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* News Section */
+.news-section {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+.news-section h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.news-section .lead {
+  color: #6c757d;
+  font-size: 1.2rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 80px 0;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.cta-section .lead {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-section .btn {
+  padding: 15px 40px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 2.5rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #1e3c72;
+  border-color: #1e3c72;
+}
+
+.btn-primary:hover {
+  background-color: #2a5298;
+  border-color: #2a5298;
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+/* Section Spacing */
+section {
+  position: relative;
+}
+
+section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+}

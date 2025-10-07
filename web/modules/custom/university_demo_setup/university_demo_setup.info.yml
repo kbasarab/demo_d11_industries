@@ -1,0 +1,10 @@
+name: University Demo Setup
+type: module
+description: 'Setup module for university demo site with homepage hero and cards'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:block
+  - drupal:views
+  - drupal:layout_builder

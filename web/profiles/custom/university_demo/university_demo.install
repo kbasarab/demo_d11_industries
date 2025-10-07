@@ -1,0 +1,271 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the university_demo profile.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_install().
+ */
+function university_demo_install() {
+  // Set the default and admin themes.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'dxpr_theme')
+    ->set('admin', 'claro')
+    ->save(TRUE);
+
+  // Enable the admin theme for editing content.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+
+  // Set front page to /home.
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('name', 'University Demo Site')
+    ->set('page.front', '/node/1')
+    ->save(TRUE);
+
+  // Allow visitor account creation with administrative approval.
+  \Drupal::configFactory()
+    ->getEditable('user.settings')
+    ->set('register', User::REGISTER_VISITORS)
+    ->save(TRUE);
+
+  // Create content types.
+  university_demo_create_content_types();
+  
+  // Create taxonomies.
+  university_demo_create_taxonomies();
+  
+  // Create sample content.
+  university_demo_create_sample_content();
+  
+  // Create menu items.
+  university_demo_create_menu_items();
+}
+
+/**
+ * Create content types.
+ */
+function university_demo_create_content_types() {
+  $types = [
+    'page' => [
+      'name' => 'Basic page',
+      'description' => 'Use basic pages for your static content.',
+    ],
+    'program' => [
+      'name' => 'Academic Program',
+      'description' => 'Information about academic programs and degrees.',
+    ],
+    'news' => [
+      'name' => 'News Article',
+      'description' => 'News and announcements.',
+    ],
+    'event' => [
+      'name' => 'Event',
+      'description' => 'Campus events and activities.',
+    ],
+  ];
+
+  foreach ($types as $id => $config) {
+    if (!\Drupal::entityTypeManager()->getStorage('node_type')->load($id)) {
+      $type = \Drupal::entityTypeManager()->getStorage('node_type')->create([
+        'type' => $id,
+        'name' => $config['name'],
+        'description' => $config['description'],
+      ]);
+      $type->save();
+    }
+  }
+}
+
+/**
+ * Create taxonomies.
+ */
+function university_demo_create_taxonomies() {
+  // Create Program Categories vocabulary.
+  if (!Vocabulary::load('program_categories')) {
+    $vocabulary = Vocabulary::create([
+      'vid' => 'program_categories',
+      'name' => 'Program Categories',
+      'description' => 'Categories for academic programs',
+    ]);
+    $vocabulary->save();
+
+    // Add some terms.
+    $terms = ['Undergraduate', 'Graduate', 'Certificate', 'Online'];
+    foreach ($terms as $term_name) {
+      Term::create([
+        'vid' => 'program_categories',
+        'name' => $term_name,
+      ])->save();
+    }
+  }
+
+  // Create News Categories vocabulary.
+  if (!Vocabulary::load('news_categories')) {
+    $vocabulary = Vocabulary::create([
+      'vid' => 'news_categories',
+      'name' => 'News Categories',
+      'description' => 'Categories for news articles',
+    ]);
+    $vocabulary->save();
+
+    // Add some terms.
+    $terms = ['Campus Life', 'Research', 'Athletics', 'Alumni'];
+    foreach ($terms as $term_name) {
+      Term::create([
+        'vid' => 'news_categories',
+        'name' => $term_name,
+      ])->save();
+    }
+  }
+}
+
+/**
+ * Create sample content.
+ */
+function university_demo_create_sample_content() {
+  // Create homepage.
+  $homepage = Node::create([
+    'type' => 'page',
+    'title' => 'Welcome to Our University',
+    'body' => [
+      'value' => '<div class="hero-section"><h1>Transform Your Future</h1><p>Discover world-class education and research opportunities.</p></div>',
+      'format' => 'full_html',
+    ],
+    'status' => 1,
+  ]);
+  $homepage->save();
+
+  // Create sample programs.
+  $programs = [
+    [
+      'title' => 'Computer Science',
+      'body' => 'Our Computer Science program provides students with a comprehensive foundation in computing theory and practical applications. Students learn programming, algorithms, data structures, and software engineering principles.',
+    ],
+    [
+      'title' => 'Business Administration',
+      'body' => 'The Business Administration program prepares students for leadership roles in various industries. The curriculum covers management, marketing, finance, and strategic planning.',
+    ],
+    [
+      'title' => 'Engineering',
+      'body' => 'Our Engineering program offers specializations in mechanical, electrical, and civil engineering. Students gain hands-on experience through laboratory work and industry partnerships.',
+    ],
+    [
+      'title' => 'Liberal Arts',
+      'body' => 'The Liberal Arts program provides a broad education in humanities, social sciences, and natural sciences. Students develop critical thinking and communication skills.',
+    ],
+    [
+      'title' => 'Medicine',
+      'body' => 'Our Medical program combines rigorous academic training with clinical experience. Students work with experienced physicians and researchers to develop their skills.',
+    ],
+    [
+      'title' => 'Education',
+      'body' => 'The Education program prepares future teachers and educational leaders. Students learn pedagogical theories and gain practical teaching experience.',
+    ],
+  ];
+
+  foreach ($programs as $program_data) {
+    $program = Node::create([
+      'type' => 'program',
+      'title' => $program_data['title'],
+      'body' => [
+        'value' => $program_data['body'],
+        'format' => 'full_html',
+      ],
+      'status' => 1,
+    ]);
+    $program->save();
+  }
+
+  // Create sample news articles.
+  $news_articles = [
+    [
+      'title' => 'New Research Center Opens',
+      'body' => 'The university has opened a new state-of-the-art research center focusing on sustainable energy solutions. The facility will support interdisciplinary research projects.',
+    ],
+    [
+      'title' => 'Student Achievements Recognized',
+      'body' => 'Several students have been recognized for their outstanding academic achievements and community service contributions this semester.',
+    ],
+    [
+      'title' => 'Campus Expansion Plans',
+      'body' => 'The university has announced plans for a major campus expansion, including new residence halls and academic buildings to accommodate growing enrollment.',
+    ],
+  ];
+
+  foreach ($news_articles as $news_data) {
+    $news = Node::create([
+      'type' => 'news',
+      'title' => $news_data['title'],
+      'body' => [
+        'value' => $news_data['body'],
+        'format' => 'full_html',
+      ],
+      'status' => 1,
+    ]);
+    $news->save();
+  }
+
+  // Create sample events.
+  $events = [
+    [
+      'title' => 'Open House Day',
+      'body' => 'Join us for our annual Open House Day. Prospective students and families can tour the campus, meet faculty, and learn about our programs.',
+    ],
+    [
+      'title' => 'Research Symposium',
+      'body' => 'The annual research symposium showcases student and faculty research projects. This year\'s theme is "Innovation for a Sustainable Future".',
+    ],
+    [
+      'title' => 'Alumni Reunion',
+      'body' => 'The annual alumni reunion brings together graduates from all decades. Enjoy networking, campus tours, and special presentations.',
+    ],
+  ];
+
+  foreach ($events as $event_data) {
+    $event = Node::create([
+      'type' => 'event',
+      'title' => $event_data['title'],
+      'body' => [
+        'value' => $event_data['body'],
+        'format' => 'full_html',
+      ],
+      'status' => 1,
+    ]);
+    $event->save();
+  }
+}
+
+/**
+ * Create menu items.
+ */
+function university_demo_create_menu_items() {
+  $items = [
+    ['title' => 'Programs', 'link' => 'internal:/programs'],
+    ['title' => 'Admissions', 'link' => 'internal:/admissions'],
+    ['title' => 'Research', 'link' => 'internal:/research'],
+    ['title' => 'Campus Life', 'link' => 'internal:/campus-life'],
+    ['title' => 'News', 'link' => 'internal:/news'],
+  ];
+
+  foreach ($items as $item) {
+    MenuLinkContent::create([
+      'title' => $item['title'],
+      'link' => ['uri' => $item['link']],
+      'menu_name' => 'main',
+    ])->save();
+  }
+}

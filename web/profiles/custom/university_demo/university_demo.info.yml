@@ -1,0 +1,35 @@
+name: University Demo
+type: profile
+description: 'Installation profile for university websites with DXPR theme'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:block
+  - drupal:field
+  - drupal:text
+  - drupal:options
+  - drupal:path
+  - drupal:menu_ui
+  - drupal:views
+  - drupal:views_ui
+  - drupal:layout_builder
+  - drupal:layout_discovery
+  - drupal:media
+  - drupal:media_library
+  - drupal:image
+  - drupal:file
+  - drupal:link
+  - drupal:datetime
+  - drupal:taxonomy
+  - drupal:paragraphs
+  - drupal:pathauto
+  - drupal:token
+  - drupal:metatag
+  - drupal:admin_toolbar
+  - drupal:views_infinite_scroll
+  - dxpr_theme_helper
+  - media_library_form_element
+themes:
+  - dxpr_theme
+libraries:
+  - university_demo/university-homepage

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e28261d907604b009650cd8c11db05f",
+    "content-hash": "3053e796b6cad78f1fac2bd99f2e6110",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,59 +61,6 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.3.0"
             },
             "time": "2025-03-13T08:50:04+00:00"
-        },
-        {
-            "name": "cfpinto/graphql",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cfpinto/graphql.git",
-                "reference": "94691ee8238c80c243dcf3636efb4546df5b86f4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cfpinto/graphql/zipball/94691ee8238c80c243dcf3636efb4546df5b86f4",
-                "reference": "94691ee8238c80c243dcf3636efb4546df5b86f4",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": "8.*"
-            },
-            "require-dev": {
-                "phpmd/phpmd": "^2.13",
-                "phpunit/phpunit": "^9.5",
-                "spatie/phpunit-watcher": "^1.23",
-                "squizlabs/php_codesniffer": "^3.7",
-                "symfony/var-dumper": "^6.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "GraphQL\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Claudio Pinto",
-                    "email": "me@cfpinto.com"
-                }
-            ],
-            "description": "A GraphQL query builder class",
-            "homepage": "https://github.com/cfpinto/graphql",
-            "keywords": [
-                "graphql",
-                "query builder"
-            ],
-            "support": {
-                "issues": "https://github.com/cfpinto/graphql/issues",
-                "source": "https://github.com/cfpinto/graphql/tree/v2.0.0"
-            },
-            "time": "2023-01-20T17:13:41+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -1502,16 +1449,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "11.x-dev",
+            "version": "11.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "a6b415a709e0450bf9e78a9244481d16880784d8"
+                "reference": "6d684b0407541c61df4e3bd47b33de475d9f0418"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/a6b415a709e0450bf9e78a9244481d16880784d8",
-                "reference": "a6b415a709e0450bf9e78a9244481d16880784d8",
+                "url": "https://api.github.com/repos/drupal/core/zipball/6d684b0407541c61df4e3bd47b33de475d9f0418",
+                "reference": "6d684b0407541c61df4e3bd47b33de475d9f0418",
                 "shasum": ""
             },
             "require": {
@@ -1519,8 +1466,7 @@
                 "composer-runtime-api": "^2.1",
                 "composer/semver": "^3.3",
                 "doctrine/annotations": "^2.0",
-                "doctrine/lexer": "^2 || ^3",
-                "drupal/core-composer-scaffold": "self.version",
+                "doctrine/lexer": "^2.0",
                 "egulias/email-validator": "^3.2.1|^4.0",
                 "ext-date": "*",
                 "ext-dom": "*",
@@ -1536,8 +1482,8 @@
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
                 "ext-zlib": "*",
-                "guzzlehttp/guzzle": "^7.10",
-                "guzzlehttp/psr7": "^2.8.0",
+                "guzzlehttp/guzzle": "^7.5",
+                "guzzlehttp/psr7": "^2.4.5",
                 "masterminds/html5": "^2.7",
                 "mck89/peast": "^1.14",
                 "pear/archive_tar": "^1.4.14",
@@ -1557,7 +1503,6 @@
                 "symfony/mime": "^7.3",
                 "symfony/polyfill-iconv": "^1.32",
                 "symfony/polyfill-php84": "^1.32",
-                "symfony/polyfill-php85": "^1.32",
                 "symfony/process": "^7.3",
                 "symfony/psr-http-message-bridge": "^7.3",
                 "symfony/routing": "^7.3",
@@ -1601,7 +1546,6 @@
             "suggest": {
                 "ext-zip": "Needed to extend the plugin.manager.archiver service capability with the handling of files in the ZIP format."
             },
-            "default-branch": true,
             "type": "drupal-core",
             "extra": {
                 "drupal-scaffold": {
@@ -1671,22 +1615,22 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/11.x"
+                "source": "https://github.com/drupal/core/tree/11.2.4"
             },
-            "time": "2025-10-06T09:42:59+00:00"
+            "time": "2025-09-04T08:52:33+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.x-dev",
+            "version": "11.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
-                "reference": "9d68d40854ac769081ec9b3acfbc20dd11b0f5e0"
+                "reference": "891b4615c479e17245c81571c9be0156be4b03f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/9d68d40854ac769081ec9b3acfbc20dd11b0f5e0",
-                "reference": "9d68d40854ac769081ec9b3acfbc20dd11b0f5e0",
+                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/891b4615c479e17245c81571c9be0156be4b03f8",
+                "reference": "891b4615c479e17245c81571c9be0156be4b03f8",
                 "shasum": ""
             },
             "require": {
@@ -1699,7 +1643,6 @@
             "require-dev": {
                 "composer/composer": "^1.8@stable"
             },
-            "default-branch": true,
             "type": "composer-plugin",
             "extra": {
                 "class": "Drupal\\Composer\\Plugin\\Scaffold\\Plugin",
@@ -1722,22 +1665,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.x"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.2.4"
             },
-            "time": "2025-09-08T21:12:54+00:00"
+            "time": "2025-05-05T16:18:58+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "11.x-dev",
+            "version": "11.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "d19af3903e75f04dd4b072b62ac6ce0d923750d7"
+                "reference": "53d63022e07ded81964d295c50ffd76279869b07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/d19af3903e75f04dd4b072b62ac6ce0d923750d7",
-                "reference": "d19af3903e75f04dd4b072b62ac6ce0d923750d7",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/53d63022e07ded81964d295c50ffd76279869b07",
+                "reference": "53d63022e07ded81964d295c50ffd76279869b07",
                 "shasum": ""
             },
             "require": {
@@ -1746,11 +1689,11 @@
                 "doctrine/annotations": "~2.0.2",
                 "doctrine/deprecations": "~1.1.5",
                 "doctrine/lexer": "~2.1.1",
-                "drupal/core": "11.x-dev",
+                "drupal/core": "11.2.4",
                 "egulias/email-validator": "~4.0.4",
-                "guzzlehttp/guzzle": "~7.10.0",
-                "guzzlehttp/promises": "~2.3.0",
-                "guzzlehttp/psr7": "~2.8.0",
+                "guzzlehttp/guzzle": "~7.9.3",
+                "guzzlehttp/promises": "~2.2.0",
+                "guzzlehttp/psr7": "~2.7.1",
                 "masterminds/html5": "~2.9.0",
                 "mck89/peast": "~v1.17.0",
                 "pear/archive_tar": "~1.5.0",
@@ -1785,7 +1728,6 @@
                 "symfony/polyfill-intl-normalizer": "~v1.32.0",
                 "symfony/polyfill-mbstring": "~v1.32.0",
                 "symfony/polyfill-php84": "~v1.32.0",
-                "symfony/polyfill-php85": "~v1.32.0",
                 "symfony/process": "~v7.3.0",
                 "symfony/psr-http-message-bridge": "~v7.3.0",
                 "symfony/routing": "~v7.3.0",
@@ -1809,9 +1751,102 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/11.x"
+                "source": "https://github.com/drupal/core-recommended/tree/11.2.4"
             },
-            "time": "2025-08-28T09:17:07+00:00"
+            "time": "2025-09-04T08:52:33+00:00"
+        },
+        {
+            "name": "drupal/ctools",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ctools.git",
+                "reference": "4.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ctools-4.1.0.zip",
+                "reference": "4.1.0",
+                "shasum": "69f5889cf557df9e55519390e6a95cfa31b67874"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.1.0",
+                    "datestamp": "1718144949",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "branch-alias": {
+                    "dev-8.x-3.x": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Vanderwater (EclipseGc)",
+                    "homepage": "https://www.drupal.org/u/eclipsegc",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jakob Perry (japerry)",
+                    "homepage": "https://www.drupal.org/u/japerry",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Tim Plunkett (tim.plunkett)",
+                    "homepage": "https://www.drupal.org/u/timplunkett",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "James Gilliland (neclimdul)",
+                    "homepage": "https://www.drupal.org/u/neclimdul",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Daniel Wehner (dawehner)",
+                    "homepage": "https://www.drupal.org/u/dawehner",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                },
+                {
+                    "name": "merlinofchaos",
+                    "homepage": "https://www.drupal.org/user/26979"
+                },
+                {
+                    "name": "neclimdul",
+                    "homepage": "https://www.drupal.org/user/48673"
+                },
+                {
+                    "name": "sdboyer",
+                    "homepage": "https://www.drupal.org/user/146719"
+                },
+                {
+                    "name": "sun",
+                    "homepage": "https://www.drupal.org/user/54136"
+                },
+                {
+                    "name": "tim.plunkett",
+                    "homepage": "https://www.drupal.org/user/241634"
+                }
+            ],
+            "description": "Provides a number of utility and helper APIs for Drupal developers and site builders.",
+            "homepage": "https://www.drupal.org/project/ctools",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ctools",
+                "issues": "https://www.drupal.org/project/issues/ctools"
+            }
         },
         {
             "name": "drupal/dxpr_theme",
@@ -2409,6 +2444,75 @@
             }
         },
         {
+            "name": "drupal/pathauto",
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/pathauto.git",
+                "reference": "8.x-1.14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/pathauto-8.x-1.14.zip",
+                "reference": "8.x-1.14",
+                "shasum": "07f0d2efcf0bfb450e2ab69a43921fa39dc5f25b"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/ctools": "*",
+                "drupal/token": "*"
+            },
+            "conflict": {
+                "drush/drush": "<12.5.1"
+            },
+            "require-dev": {
+                "drupal/forum": "*"
+            },
+            "suggest": {
+                "drupal/redirect": "When installed Pathauto will provide a new \"Update Action\" in case your URLs change. This is the recommended update action and is considered the best practice for SEO and usability."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.14",
+                    "datestamp": "1759838097",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "dave reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "Freso",
+                    "homepage": "https://www.drupal.org/user/27504"
+                },
+                {
+                    "name": "greggles",
+                    "homepage": "https://www.drupal.org/user/36762"
+                }
+            ],
+            "description": "Provides a mechanism for modules to automatically generate aliases for the content they manage.",
+            "homepage": "https://www.drupal.org/project/pathauto",
+            "support": {
+                "source": "https://cgit.drupalcode.org/pathauto",
+                "issues": "https://www.drupal.org/project/issues/pathauto",
+                "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
+            }
+        },
+        {
             "name": "drupal/token",
             "version": "1.16.0",
             "source": {
@@ -2478,6 +2582,74 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/views_infinite_scroll",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_infinite_scroll.git",
+                "reference": "2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_infinite_scroll-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "3c56969f71256300226118a0f35bad66ab41306c"
+            },
+            "require": {
+                "drupal/core": "^10.1 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.3",
+                    "datestamp": "1724335951",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "anybody",
+                    "homepage": "https://www.drupal.org/user/291091"
+                },
+                {
+                    "name": "grevil",
+                    "homepage": "https://www.drupal.org/user/3668491"
+                },
+                {
+                    "name": "Honza Pobořil",
+                    "homepage": "https://www.drupal.org/user/123612"
+                },
+                {
+                    "name": "neslee canil pinto",
+                    "homepage": "https://www.drupal.org/user/3580850"
+                },
+                {
+                    "name": "Remon",
+                    "homepage": "https://www.drupal.org/user/143827"
+                },
+                {
+                    "name": "sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
+                },
+                {
+                    "name": "thomas.frobieter",
+                    "homepage": "https://www.drupal.org/user/409335"
+                }
+            ],
+            "description": "A pager which allows an infinite scroll effect for views.",
+            "homepage": "https://www.drupal.org/project/views_infinite_scroll",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_infinite_scroll"
             }
         },
         {
@@ -2696,56 +2868,6 @@
             "time": "2025-03-06T22:45:56+00:00"
         },
         {
-            "name": "erusev/parsedown",
-            "version": "1.7.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/erusev/parsedown.git",
-                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
-                "reference": "cb17b6477dfff935958ba01325f2e8a2bfa6dab3",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Parsedown": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Emanuil Rusev",
-                    "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
-                }
-            ],
-            "description": "Parser for Markdown.",
-            "homepage": "http://parsedown.org",
-            "keywords": [
-                "markdown",
-                "parser"
-            ],
-            "support": {
-                "issues": "https://github.com/erusev/parsedown/issues",
-                "source": "https://github.com/erusev/parsedown/tree/1.7.x"
-            },
-            "time": "2019-12-30T22:54:17+00:00"
-        },
-        {
             "name": "grasmash/expander",
             "version": "3.0.1",
             "source": {
@@ -2855,22 +2977,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.10.0",
+            "version": "7.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b51ac707cfa420b7bfd4e4d5e510ba8008e822b4"
+                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b51ac707cfa420b7bfd4e4d5e510ba8008e822b4",
-                "reference": "b51ac707cfa420b7bfd4e4d5e510ba8008e822b4",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
+                "reference": "7b2f29fe81dc4da0ca0ea7d42107a0845946ea77",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^2.3",
-                "guzzlehttp/psr7": "^2.8",
+                "guzzlehttp/promises": "^1.5.3 || ^2.0.3",
+                "guzzlehttp/psr7": "^2.7.0",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.2 || ^3.0"
@@ -2961,7 +3083,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.10.0"
+                "source": "https://github.com/guzzle/guzzle/tree/7.9.3"
             },
             "funding": [
                 {
@@ -2977,20 +3099,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-23T22:36:01+00:00"
+            "time": "2025-03-27T13:37:11+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.3.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "481557b130ef3790cf82b713667b43030dc9c957"
+                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/481557b130ef3790cf82b713667b43030dc9c957",
-                "reference": "481557b130ef3790cf82b713667b43030dc9c957",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/7c69f28996b0a6920945dd20b3857e499d9ca96c",
+                "reference": "7c69f28996b0a6920945dd20b3857e499d9ca96c",
                 "shasum": ""
             },
             "require": {
@@ -2998,7 +3120,7 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
-                "phpunit/phpunit": "^8.5.44 || ^9.6.25"
+                "phpunit/phpunit": "^8.5.39 || ^9.6.20"
             },
             "type": "library",
             "extra": {
@@ -3044,7 +3166,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.3.0"
+                "source": "https://github.com/guzzle/promises/tree/2.2.0"
             },
             "funding": [
                 {
@@ -3060,20 +3182,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-22T14:34:08+00:00"
+            "time": "2025-03-27T13:27:01+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.8.0",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "21dc724a0583619cd1652f673303492272778051"
+                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/21dc724a0583619cd1652f673303492272778051",
-                "reference": "21dc724a0583619cd1652f673303492272778051",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/c2270caaabe631b3b44c85f99e5a04bbb8060d16",
+                "reference": "c2270caaabe631b3b44c85f99e5a04bbb8060d16",
                 "shasum": ""
             },
             "require": {
@@ -3089,7 +3211,7 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "http-interop/http-factory-tests": "0.9.0",
-                "phpunit/phpunit": "^8.5.44 || ^9.6.25"
+                "phpunit/phpunit": "^8.5.39 || ^9.6.20"
             },
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
@@ -3160,7 +3282,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.8.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.7.1"
             },
             "funding": [
                 {
@@ -3176,7 +3298,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-23T21:21:41+00:00"
+            "time": "2025-03-27T12:30:47+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -3721,59 +3843,6 @@
             "time": "2025-02-04T19:30:04+00:00"
         },
         {
-            "name": "pantheon-systems/pcc-php-sdk",
-            "version": "0.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pantheon-systems/pcc-php-sdk.git",
-                "reference": "fc5141ff83764dc881e002dd25977dadb1d25c21"
-            },
-            "require": {
-                "cfpinto/graphql": "v2.0.0",
-                "erusev/parsedown": "^1.7",
-                "guzzlehttp/guzzle": "^7.8",
-                "guzzlehttp/promises": "^2.0",
-                "guzzlehttp/psr7": "^2.6",
-                "php": ">=8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PccPhpSdk\\": "src/"
-                }
-            },
-            "description": "SDK Library for PCC Integration.",
-            "homepage": "https://github.com/digitalpolygon/pcc-php-sdk/",
-            "time": "2024-07-26T12:57:07+00:00"
-        },
-        {
-            "name": "pantheon-systems/pcx_connect",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danny2p/pcc-drupal-module.git",
-                "reference": "e78fc9129a8c010a1cbbde5b0d97ba8afeccd363"
-            },
-            "require": {
-                "pantheon-systems/pcc-php-sdk": "^0.0.1"
-            },
-            "default-branch": true,
-            "type": "drupal-module",
-            "extra": {
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9 || ^10 || ^11"
-                    }
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Drupal Module for PCC Integration.",
-            "homepage": "https://drupal.org/project/pcx_connect",
-            "time": "2024-12-18T04:18:44+00:00"
-        },
-        {
             "name": "pantheon-systems/upstream-management",
             "version": "1.0.1",
             "source": {
@@ -3830,7 +3899,7 @@
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
-                "reference": "8fea895ef16820bcc7735242b401764eeca5b60a"
+                "reference": "f343971fcb7728adabcad84641743ab7f10f5c0f"
             },
             "require": {
                 "composer/installers": "^1.9",
@@ -3838,17 +3907,20 @@
                 "drupal/admin_toolbar": "^3.6",
                 "drupal/ai": "^1.1",
                 "drupal/ai_provider_openai": "^1.1",
-                "drupal/core-composer-scaffold": "^11",
-                "drupal/core-recommended": "^11",
+                "drupal/core-composer-scaffold": "11.2.4",
+                "drupal/core-recommended": "11.2.4",
                 "drupal/dxpr_theme": "^6.0",
                 "drupal/dxpr_theme_helper": "^2.1",
+                "drupal/media_library_form_element": "^2.0",
                 "drupal/metatag": "^2.1",
                 "drupal/pantheon_advanced_page_cache": "^2.3",
                 "drupal/paragraphs": "^1.18",
+                "drupal/pathauto": "^1.14",
+                "drupal/token": "^1.16",
+                "drupal/views_infinite_scroll": "^2.0",
                 "drush/drush": "^13",
                 "pantheon-systems/drupal-integrations": "^11",
-                "pantheon-systems/pcx_connect": "dev-main",
-                "pantheon-systems/upstream-management": "*"
+                "pantheon-systems/upstream-management": "^1.0"
             },
             "type": "project",
             "extra": {
@@ -6792,82 +6864,6 @@
                 }
             ],
             "time": "2025-02-20T12:04:08+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php85",
-            "version": "v1.32.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "6fedf31ce4e3648f4ff5ca58bfd53127d38f05fd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/6fedf31ce4e3648f4ff5ca58bfd53127d38f05fd",
-                "reference": "6fedf31ce4e3648f4ff5ca58bfd53127d38f05fd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/polyfill",
-                    "name": "symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php85\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 8.5+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.32.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-05-02T08:40:52+00:00"
         },
         {
             "name": "symfony/process",
@@ -13674,7 +13670,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
         "pantheon-upstreams/upstream-configuration": 20
     },

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Healthcare News'
+type: healthcare_news
+description: 'Healthcare industry news and updates.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

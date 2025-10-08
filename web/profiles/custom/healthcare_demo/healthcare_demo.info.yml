@@ -1,0 +1,29 @@
+name: 'Healthcare Demo'
+type: profile
+description: 'A complete healthcare technology company website with custom theme and content'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:views
+  - drupal:menu_ui
+  - drupal:taxonomy
+  - drupal:image
+  - drupal:text
+  - drupal:filter
+  - drupal:file
+  - drupal:user
+  - drupal:system
+  - drupal:path
+  - drupal:menu_link_content
+  - drupal:block
+  - drupal:views_ui
+  - drupal:field_ui
+  - drupal:paragraphs
+  - drupal:pathauto
+  - drupal:token
+  - drupal:metatag
+  - drupal:admin_toolbar
+  - drupal:views_infinite_scroll
+themes:
+  - healthcare_bootstrap

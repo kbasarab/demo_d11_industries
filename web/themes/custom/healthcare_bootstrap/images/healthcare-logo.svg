@@ -1,0 +1,33 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="healthcareGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2b6cb0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3182ce;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Medical Cross Icon -->
+  <g transform="translate(5, 10)">
+    <!-- Main Cross -->
+    <rect x="8" y="0" width="9" height="40" fill="url(#healthcareGradient)" rx="2"/>
+    <rect x="0" y="16" width="25" height="9" fill="url(#healthcareGradient)" rx="2"/>
+    
+    <!-- Medical Symbol Background -->
+    <circle cx="12.5" cy="20.5" r="18" fill="none" stroke="url(#healthcareGradient)" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Heartbeat Line -->
+    <path d="M2 25 L5 20 L8 25 L11 15 L14 25 L17 20 L20 25 L23 15 L26 25" 
+          stroke="url(#healthcareGradient)" 
+          stroke-width="2" 
+          fill="none" 
+          opacity="0.6"/>
+  </g>
+  
+  <!-- Healthcare Text -->
+  <text x="40" y="25" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="url(#healthcareGradient)">HealthTech</text>
+  <text x="40" y="45" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#4a5568">Solutions</text>
+  
+  <!-- Decorative Line -->
+  <line x1="40" y1="50" x2="180" y2="50" stroke="url(#healthcareGradient)" stroke-width="2" opacity="0.3"/>
+</svg>

@@ -1,0 +1,129 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ */
+#}
+<div class="healthcare-page">
+  {# Header with Navigation #}
+  <header class="site-header bg-white shadow-sm">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          {# Logo #}
+          <a class="navbar-brand d-flex align-items-center" href="{{ path('<front>') }}">
+            <img src="/themes/custom/healthcare_bootstrap/images/healthcare-logo.svg" alt="HealthTech Logo" height="40" class="me-2">
+            <span class="fw-bold text-primary">HealthTech Solutions</span>
+          </a>
+          
+          {# Mobile toggle #}
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          {# Navigation Menu #}
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('<front>') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/solutions">Solutions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/news">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  {# Hero Section for Interior Pages #}
+  {% if not is_front %}
+  <section class="page-hero bg-primary text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="hero-content text-center">
+            {% if node %}
+              <h1 class="hero-title mb-3">{{ node.label }}</h1>
+              {% if node.type.entity.label %}
+                <p class="hero-subtitle mb-0">{{ node.type.entity.label }}</p>
+              {% endif %}
+            {% else %}
+              <h1 class="hero-title mb-3">{{ page['#title']|default('Page') }}</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# Main Content #}
+  <main class="main-content">
+    {{ page.content }}
+  </main>
+
+  {# Footer #}
+  <footer class="site-footer bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5 class="text-white mb-3">HealthTech Solutions</h5>
+          <p class="text-light">Transforming healthcare through innovative technology solutions that improve patient care and operational efficiency.</p>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Services</h6>
+          <ul class="list-unstyled">
+            <li><a href="/services" class="text-light text-decoration-none">Telemedicine</a></li>
+            <li><a href="/services" class="text-light text-decoration-none">EHR Systems</a></li>
+            <li><a href="/services" class="text-light text-decoration-none">Medical Imaging</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Company</h6>
+          <ul class="list-unstyled">
+            <li><a href="/about" class="text-light text-decoration-none">About Us</a></li>
+            <li><a href="/news" class="text-light text-decoration-none">News</a></li>
+            <li><a href="/contact" class="text-light text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="/help" class="text-light text-decoration-none">Help Center</a></li>
+            <li><a href="/security" class="text-light text-decoration-none">Security</a></li>
+            <li><a href="/compliance" class="text-light text-decoration-none">Compliance</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Connect</h6>
+          <div class="social-links">
+            <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="text-light mb-0">&copy; {{ "now"|date("Y") }} HealthTech Solutions. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,8 @@
+name: 'Healthcare Bootstrap'
+type: theme
+description: 'Custom healthcare technology theme based on Bootstrap 5'
+core_version_requirement: ^11
+base theme: olivero
+libraries:
+  - healthcare_bootstrap/bootstrap
+  - healthcare_bootstrap/healthcare-homepage

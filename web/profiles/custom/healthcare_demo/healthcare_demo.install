@@ -1,0 +1,386 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the healthcare_demo profile.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_install().
+ */
+function healthcare_demo_install() {
+  // Set the default and admin themes.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'healthcare_bootstrap')
+    ->set('admin', 'claro')
+    ->save(TRUE);
+
+  // Set front page to /home.
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('name', 'HealthTech Solutions')
+    ->set('page.front', '/node/1')
+    ->save(TRUE);
+
+  // Allow visitor account creation with administrative approval.
+  \Drupal::configFactory()
+    ->getEditable('user.settings')
+    ->set('register', User::REGISTER_VISITORS)
+    ->save(TRUE);
+
+  // Create content types.
+  healthcare_demo_create_content_types();
+  
+  // Create taxonomies.
+  healthcare_demo_create_taxonomies();
+  
+  // Create sample content.
+  healthcare_demo_create_sample_content();
+  
+  // Create menu items.
+  healthcare_demo_create_menu_items();
+}
+
+/**
+ * Create content types.
+ */
+function healthcare_demo_create_content_types() {
+  $types = [
+    'service' => [
+      'name' => 'Healthcare Service',
+      'description' => 'Healthcare technology services and solutions.',
+    ],
+    'team_member' => [
+      'name' => 'Team Member',
+      'description' => 'Healthcare team members and staff profiles.',
+    ],
+    'healthcare_news' => [
+      'name' => 'Healthcare News',
+      'description' => 'Healthcare industry news and updates.',
+    ],
+    'case_study' => [
+      'name' => 'Case Study',
+      'description' => 'Healthcare technology case studies and success stories.',
+    ],
+  ];
+
+  foreach ($types as $id => $config) {
+    if (!\Drupal::entityTypeManager()->getStorage('node_type')->load($id)) {
+      $type = \Drupal::entityTypeManager()->getStorage('node_type')->create([
+        'type' => $id,
+        'name' => $config['name'],
+        'description' => $config['description'],
+      ]);
+      $type->save();
+      
+      // Add body field to content types that need it
+      if (in_array($id, ['service', 'team_member', 'healthcare_news', 'case_study'])) {
+        // Check if body field instance exists for this content type
+        $field = \Drupal::entityTypeManager()->getStorage('field_config')->load("node.{$id}.body");
+        if (!$field) {
+          // Create body field instance for this content type
+          $field = \Drupal::entityTypeManager()->getStorage('field_config')->create([
+            'field_name' => 'body',
+            'entity_type' => 'node',
+            'bundle' => $id,
+            'label' => 'Body',
+            'field_type' => 'text_with_summary',
+            'settings' => [],
+          ]);
+          $field->save();
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Create taxonomies.
+ */
+function healthcare_demo_create_taxonomies() {
+  // Create Service Categories vocabulary.
+  if (!Vocabulary::load('service_categories')) {
+    $vocabulary = Vocabulary::create([
+      'vid' => 'service_categories',
+      'name' => 'Service Categories',
+      'description' => 'Categories for healthcare services',
+    ]);
+    $vocabulary->save();
+
+    // Add some terms.
+    $terms = ['Telemedicine', 'Electronic Health Records', 'Medical Imaging', 'Patient Management'];
+    foreach ($terms as $term_name) {
+      Term::create([
+        'vid' => 'service_categories',
+        'name' => $term_name,
+      ])->save();
+    }
+  }
+
+  // Create News Categories vocabulary.
+  if (!Vocabulary::load('healthcare_news_categories')) {
+    $vocabulary = Vocabulary::create([
+      'vid' => 'healthcare_news_categories',
+      'name' => 'Healthcare News Categories',
+      'description' => 'Categories for healthcare news articles',
+    ]);
+    $vocabulary->save();
+
+    // Add some terms.
+    $terms = ['Technology', 'Regulations', 'Innovation', 'Partnerships'];
+    foreach ($terms as $term_name) {
+      Term::create([
+        'vid' => 'healthcare_news_categories',
+        'name' => $term_name,
+      ])->save();
+    }
+  }
+}
+
+/**
+ * Create sample content.
+ */
+function healthcare_demo_create_sample_content() {
+  // Create homepage.
+  $homepage = Node::create([
+    'type' => 'page',
+    'title' => 'Welcome to HealthTech Solutions',
+    'body' => [
+      'value' => '<div class="hero-section"><h1>Transforming Healthcare Through Technology</h1><p>Innovative solutions for modern healthcare challenges.</p></div>',
+      'format' => 'filtered_html',
+    ],
+    'status' => 1,
+  ]);
+  $homepage->save();
+
+  // Create sample services.
+  $services = [
+    [
+      'title' => 'Telemedicine Platform',
+      'body' => '<h2>Service Overview</h2>
+<p>Our comprehensive telemedicine platform enables healthcare providers to deliver quality care remotely, improving patient access and reducing healthcare costs.</p>
+
+<h3>Key Features</h3>
+<ul>
+<li>Secure video consultations</li>
+<li>Real-time patient monitoring</li>
+<li>Electronic prescription management</li>
+<li>Integration with EHR systems</li>
+<li>HIPAA-compliant communication</li>
+<li>Mobile app for patients and providers</li>
+</ul>
+
+<h3>Benefits</h3>
+<p>Reduce patient wait times, increase provider efficiency, and improve healthcare accessibility for rural and underserved communities.</p>
+
+<h3>Implementation</h3>
+<p>Our team provides complete setup, training, and ongoing support to ensure successful deployment and adoption.</p>',
+    ],
+    [
+      'title' => 'Electronic Health Records',
+      'body' => '<h2>Service Overview</h2>
+<p>Advanced EHR system designed to streamline healthcare workflows, improve patient care, and ensure regulatory compliance.</p>
+
+<h3>Core Functionality</h3>
+<ul>
+<li>Patient demographics and history</li>
+<li>Clinical documentation</li>
+<li>Lab results and imaging</li>
+<li>Medication management</li>
+<li>Billing and coding</li>
+<li>Quality reporting</li>
+</ul>
+
+<h3>Integration Capabilities</h3>
+<p>Seamlessly integrates with existing healthcare systems, lab equipment, and third-party applications for a unified workflow.</p>
+
+<h3>Compliance & Security</h3>
+<p>Built with HIPAA compliance in mind, featuring advanced encryption, audit trails, and role-based access controls.</p>',
+    ],
+    [
+      'title' => 'Medical Imaging Solutions',
+      'body' => '<h2>Service Overview</h2>
+<p>Cutting-edge medical imaging technology that enhances diagnostic accuracy and improves patient outcomes through advanced AI-powered analysis.</p>
+
+<h3>Technology Features</h3>
+<ul>
+<li>AI-assisted image analysis</li>
+<li>3D reconstruction capabilities</li>
+<li>Cloud-based storage and sharing</li>
+<li>Mobile viewing applications</li>
+<li>Integration with PACS systems</li>
+<li>Real-time collaboration tools</li>
+</ul>
+
+<h3>Supported Modalities</h3>
+<p>Compatible with X-ray, CT, MRI, ultrasound, and other imaging modalities for comprehensive diagnostic support.</p>
+
+<h3>Clinical Benefits</h3>
+<p>Improve diagnostic accuracy, reduce interpretation time, and enhance collaboration between radiologists and referring physicians.</p>',
+    ],
+    [
+      'title' => 'Patient Management System',
+      'body' => '<h2>Service Overview</h2>
+<p>Comprehensive patient management solution that streamlines administrative processes and improves patient engagement throughout their healthcare journey.</p>
+
+<h3>Patient Portal Features</h3>
+<ul>
+<li>Appointment scheduling</li>
+<li>Prescription refills</li>
+<li>Lab results access</li>
+<li>Health records viewing</li>
+<li>Secure messaging</li>
+<li>Insurance information management</li>
+</ul>
+
+<h3>Provider Tools</h3>
+<p>Administrative dashboard for managing patient flow, scheduling, and communication with integrated analytics and reporting.</p>
+
+<h3>Mobile Experience</h3>
+<p>Native mobile applications for both patients and providers, ensuring access to critical healthcare information anywhere, anytime.</p>',
+    ],
+  ];
+
+  foreach ($services as $service_data) {
+    $service = Node::create([
+      'type' => 'service',
+      'title' => $service_data['title'],
+      'body' => [
+        'value' => $service_data['body'],
+        'format' => 'filtered_html',
+      ],
+      'status' => 1,
+    ]);
+    $service->save();
+  }
+
+  // Create sample healthcare news articles.
+  $news_articles = [
+    [
+      'title' => 'AI-Powered Diagnostic Tool Receives FDA Approval',
+      'body' => '<p>Our latest artificial intelligence diagnostic tool has received FDA approval, marking a significant milestone in healthcare technology innovation.</p>
+
+<h3>Technology Breakthrough</h3>
+<p>The AI system can analyze medical images with 95% accuracy, significantly reducing diagnostic time and improving patient outcomes. The tool has been tested across multiple medical specialties and shows promising results.</p>
+
+<h3>Clinical Impact</h3>
+<ul>
+<li>Reduced diagnostic time by 60%</li>
+<li>Improved accuracy in early disease detection</li>
+<li>Enhanced workflow efficiency for radiologists</li>
+<li>Better patient outcomes through faster diagnosis</li>
+</ul>
+
+<h3>Implementation Timeline</h3>
+<p>The tool will be available to healthcare providers starting next quarter, with comprehensive training and support provided by our clinical team.</p>',
+    ],
+    [
+      'title' => 'Partnership with Major Health System Expands Telemedicine Access',
+      'body' => '<p>We\'ve announced a strategic partnership with Regional Health System to expand telemedicine services to underserved communities across the region.</p>
+
+<h3>Partnership Details</h3>
+<p>This collaboration will bring our telemedicine platform to 50+ rural clinics, providing access to specialist care for over 100,000 patients who previously had limited healthcare options.</p>
+
+<h3>Community Impact</h3>
+<ul>
+<li>Increased access to specialist care</li>
+<li>Reduced travel time and costs for patients</li>
+<li>Improved health outcomes in rural areas</li>
+<li>Enhanced provider collaboration</li>
+</ul>
+
+<h3>Technology Integration</h3>
+<p>Our platform will integrate seamlessly with the health system\'s existing EHR, ensuring continuity of care and streamlined workflows for healthcare providers.</p>',
+    ],
+    [
+      'title' => 'New Cybersecurity Framework Protects Patient Data',
+      'body' => '<p>We\'ve implemented a comprehensive cybersecurity framework that exceeds industry standards to protect patient data and ensure HIPAA compliance.</p>
+
+<h3>Security Enhancements</h3>
+<p>The new framework includes advanced threat detection, encryption protocols, and regular security audits to protect against evolving cyber threats in healthcare.</p>
+
+<h3>Key Features</h3>
+<ul>
+<li>End-to-end encryption for all data transmission</li>
+<li>Multi-factor authentication for system access</li>
+<li>Real-time threat monitoring and response</li>
+<li>Regular security training for all staff</li>
+<li>Compliance with latest HIPAA regulations</li>
+</ul>
+
+<h3>Industry Recognition</h3>
+<p>Our cybersecurity measures have been recognized by leading healthcare security organizations and serve as a model for other healthcare technology companies.</p>',
+    ],
+  ];
+
+  foreach ($news_articles as $news_data) {
+    $news = Node::create([
+      'type' => 'healthcare_news',
+      'title' => $news_data['title'],
+      'body' => [
+        'value' => $news_data['body'],
+        'format' => 'filtered_html',
+      ],
+      'status' => 1,
+    ]);
+    $news->save();
+  }
+
+  // Create sample case studies.
+  $case_studies = [
+    [
+      'title' => 'Regional Hospital Reduces Patient Wait Times by 40%',
+      'body' => 'Through implementation of our patient management system, Regional Hospital successfully reduced average patient wait times from 45 minutes to 27 minutes, improving patient satisfaction and operational efficiency.',
+    ],
+    [
+      'title' => 'Rural Clinic Network Expands Specialist Access',
+      'body' => 'A network of 15 rural clinics implemented our telemedicine platform, providing specialist consultations to over 5,000 patients who previously had to travel 100+ miles for care.',
+    ],
+    [
+      'title' => 'Medical Center Improves Diagnostic Accuracy with AI',
+      'body' => 'City Medical Center integrated our AI-powered imaging analysis tool, resulting in a 25% improvement in diagnostic accuracy and 30% reduction in time to diagnosis.',
+    ],
+  ];
+
+  foreach ($case_studies as $case_data) {
+    $case_study = Node::create([
+      'type' => 'case_study',
+      'title' => $case_data['title'],
+      'body' => [
+        'value' => $case_data['body'],
+        'format' => 'filtered_html',
+      ],
+      'status' => 1,
+    ]);
+    $case_study->save();
+  }
+}
+
+/**
+ * Create menu items.
+ */
+function healthcare_demo_create_menu_items() {
+  $items = [
+    ['title' => 'Services', 'link' => 'internal:/services'],
+    ['title' => 'Solutions', 'link' => 'internal:/solutions'],
+    ['title' => 'About', 'link' => 'internal:/about'],
+    ['title' => 'News', 'link' => 'internal:/news'],
+    ['title' => 'Contact', 'link' => 'internal:/contact'],
+  ];
+
+  foreach ($items as $item) {
+    MenuLinkContent::create([
+      'title' => $item['title'],
+      'link' => ['uri' => $item['link']],
+      'menu_name' => 'main',
+    ])->save();
+  }
+}

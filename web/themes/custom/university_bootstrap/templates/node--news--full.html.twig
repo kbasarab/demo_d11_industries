@@ -23,6 +23,16 @@
               <div class="news-hero-image mb-4">
                 {{ content.field_hero_image }}
               </div>
+            {% else %}
+              <div class="news-hero-image mb-4">
+                <div class="hero-placeholder bg-secondary text-white d-flex align-items-center justify-content-center rounded shadow" style="height: 300px; width: 100%;">
+                  <div class="text-center">
+                    <i class="fas fa-newspaper fa-3x mb-3"></i>
+                    <h3 class="mb-0">{{ label }}</h3>
+                    <p class="mb-0 opacity-75">News Article</p>
+                  </div>
+                </div>
+              </div>
             {% endif %}
           </header>
           

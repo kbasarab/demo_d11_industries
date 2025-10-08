@@ -17,10 +17,11 @@ use Drupal\file\Entity\File;
  * Implements hook_install().
  */
 function university_demo_install() {
-  // Set the default theme.
+  // Set the default and admin themes.
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('default', 'university_bootstrap')
+    ->set('admin', 'claro')
     ->save(TRUE);
 
   // Set front page to /home.

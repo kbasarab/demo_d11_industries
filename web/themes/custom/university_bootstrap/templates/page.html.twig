@@ -1,0 +1,132 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ */
+#}
+<div class="university-page">
+  {# Header with Navigation #}
+  <header class="site-header bg-white shadow-sm">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          {# Logo #}
+          <a class="navbar-brand d-flex align-items-center" href="{{ path('<front>') }}">
+            <img src="/themes/custom/university_bootstrap/images/university-logo.svg" alt="University Logo" height="40" class="me-2">
+            <span class="fw-bold text-primary">University Demo</span>
+          </a>
+          
+          {# Mobile toggle #}
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          {# Navigation Menu #}
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('<front>') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/programs">Programs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admissions">Admissions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/research">Research</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/campus-life">Campus Life</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/news">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  {# Hero Section for Interior Pages #}
+  {% if not is_front %}
+  <section class="page-hero bg-primary text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="hero-content text-center">
+            {% if node %}
+              <h1 class="hero-title mb-3">{{ node.label }}</h1>
+              {% if node.type.entity.label %}
+                <p class="hero-subtitle mb-0">{{ node.type.entity.label }}</p>
+              {% endif %}
+            {% else %}
+              <h1 class="hero-title mb-3">{{ page['#title']|default('Page') }}</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# Main Content #}
+  <main class="main-content">
+    {{ page.content }}
+  </main>
+
+  {# Footer #}
+  <footer class="site-footer bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5 class="text-white mb-3">University Demo</h5>
+          <p class="text-light">Transforming lives through education, research, and innovation.</p>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Academics</h6>
+          <ul class="list-unstyled">
+            <li><a href="/programs" class="text-light text-decoration-none">Programs</a></li>
+            <li><a href="/admissions" class="text-light text-decoration-none">Admissions</a></li>
+            <li><a href="/research" class="text-light text-decoration-none">Research</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Campus</h6>
+          <ul class="list-unstyled">
+            <li><a href="/campus-life" class="text-light text-decoration-none">Campus Life</a></li>
+            <li><a href="/news" class="text-light text-decoration-none">News</a></li>
+            <li><a href="/events" class="text-light text-decoration-none">Events</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="/contact" class="text-light text-decoration-none">Contact</a></li>
+            <li><a href="/help" class="text-light text-decoration-none">Help</a></li>
+            <li><a href="/accessibility" class="text-light text-decoration-none">Accessibility</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 mb-4">
+          <h6 class="text-white mb-3">Connect</h6>
+          <div class="social-links">
+            <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="text-light mb-0">&copy; {{ "now"|date("Y") }} University Demo. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

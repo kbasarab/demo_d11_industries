@@ -6,7 +6,7 @@ concurrency:
 
 on:
   pull_request_target:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
     paths:
       - '.github/testing_fixtures/**'
       - 'action.yml'
@@ -38,6 +38,14 @@ jobs:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
         path: pr-code
+    - name: Get Committer Email and Name
+      run: |
+          COMMITTER_EMAIL=$(git log --format='%ae' -n 1 ${{ github.sha }})
+          COMMITTER_NAME=$(git log --format='%an' -n 1 ${{ github.sha }})
+
+          # Configure git defaults
+          git config --global user.email "$COMMITTER_EMAIL"
+          git config --global user.name "$COMMITTER_NAME"
     - name: deploy to Pantheon
       uses: ./
       with:
@@ -46,8 +54,8 @@ jobs:
         site: ${{ vars.PANTHEON_SITE }}
         target_env: "pr-${{ github.event.pull_request.number }}"
         relative_site_root: "pr-code/.github/testing_fixtures/site:${{ vars.PANTHEON_SITE }}"
-        git_user_name: "Kevin Basarab"
-        git_user_email: "kevinbasarab@pantheon.io"
+        git_user_name: "COMMITTER_EMAIL"
+        git_user_email: "COMMITTER_NAME"
         git_commit_message: "This is an automated commit message from GitHub Actions."
         delete_old_environments: true
         clone_content: true

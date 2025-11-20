@@ -1,53 +1,21 @@
 name: Deploy PR to Pantheon
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize]
-    paths:
-      - '.github/testing_fixtures/**'
-      - 'action.yml'
-  workflow_dispatch:
 
 jobs:
-  deploy_pr:
-    name: Deploy Pull Request
-    # This job uses `pull_request_target` to gain access to secrets, which
-    # are not available on normal `pull_request` events for forks.
-    # The two-step checkout process below is critical for security.
-    # It ensures that we are executing trusted code from the base repository
-    # while operating on the untrusted code from the pull request.
-    permissions:
-      deployments: write
-      contents: write # needed to checkout the PR code.
-      pull-requests: read
+  build:
     runs-on: ubuntu-latest
     steps:
-    # Checkout the base repository at the current commit.
-    # This is the trusted code that will be executed.
-    - uses: actions/checkout@v5
-
-    # Checkout the pull request code into a subdirectory.
-    # This is the code that will be deployed.
-    - name: Checkout PR code
-      uses: actions/checkout@v5
-      with:
-        repository: ${{ github.event.pull_request.head.repo.full_name }}
-        ref: ${{ github.event.pull_request.head.ref }}
-        path: pr-code
-    - name: deploy to Pantheon
-      uses: ./
+    - uses: actions/checkout@v4
+    - name: Push to Pantheon
+      uses: pantheon-systems/push-to-pantheon@0.6.0
       with:
         ssh_key: ${{ secrets.PANTHEON_SSH_KEY }}
         machine_token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-        site: dtp-nearly-empty-site
-        target_env: "pr-${{ github.event.pull_request.number }}"
-        relative_site_root: "pr-code/.github/testing_fixtures/dtp-nearly-empty-site"
-        git_user_name: "Test Name"
-        git_user_email: "test@example.com"
-        git_commit_message: "This is an automated commit message from GitHub Actions."
-        delete_old_environments: true
-        clone_content: true
+        site: ${{ vars.PANTHEON_SITE_MACHINE_NAME }}

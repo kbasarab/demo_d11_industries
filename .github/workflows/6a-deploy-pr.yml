@@ -7,9 +7,6 @@ concurrency:
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
-    paths:
-      - '.github/testing_fixtures/**'
-      - 'action.yml'
   workflow_dispatch:
 
 jobs:

@@ -17,7 +17,7 @@ jobs:
       pull-requests: read
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     # The custom theme for this site uses Tailwind to build the
     # appropriate CSS file.
     #- run: "cd web/themes/my_custom_theme && npm ci && npm run build"

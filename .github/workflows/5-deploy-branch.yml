@@ -2,10 +2,11 @@ name: (Auto) Pantheon Remote Branch Push
 
 # Repo Sync on Push
 on: 
-  push:
-    # branches-ignore: ["master", "main"]
-    branches:
-      - 'md*'
+  workflow_dispatch:
+  #push:
+  # branches-ignore: ["master", "main"]
+  #  branches:
+  #    - 'md*'
 jobs:
   build:
     runs-on: ubuntu-latest

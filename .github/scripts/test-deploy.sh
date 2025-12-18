@@ -43,3 +43,5 @@ echo -e "Finished ${SITE} in ${MIN} minutes"
 SITE_LINK="https://test-${SITE}.pantheonsite.io";
 SLACK=":white_check_mark: Finished ${SITE_LABEL} full deployment in ${MIN} minutes. \n ${SITE_LINK}"
 [ $NOTIFY == "Yes" ] && curl -X POST -H 'Content-type: application/json' --data "{'text':'${SLACK}'}" $SLACK_WEBHOOK
+
+exit 0  # Done!

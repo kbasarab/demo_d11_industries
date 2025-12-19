@@ -33,7 +33,9 @@
         "drupal/views_infinite_scroll": "^2.0",
         "pantheon-systems/drupal-integrations": "^11",
         "pantheon-systems/upstream-management": "^1.0",
-        "drupal/video_embed_field": "^3.0"
+        "drupal/video_embed_field": "^3.0",
+        "drupal/pantheon_content_publisher": "^1.0",
+        "drupal/search_api_pantheon": "^8"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

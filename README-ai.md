@@ -474,5 +474,3 @@ This installation profile is designed to be:
 - **Error-resistant**: Includes all required configurations
 
 For questions or issues, refer to the Drupal documentation or create an issue in the project repository.
-
-Adds test comment

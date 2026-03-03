@@ -23,7 +23,8 @@
         "drupal/video_embed_field": "^3.0",
         "drupal/pantheon_content_publisher": "^1.0",
         "drupal/search_api_pantheon": "^8",
-        "drupal/core-recommended": "^11"
+        "drupal/core-recommended": "^11.3",
+        "sebastian/diff": "^6"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

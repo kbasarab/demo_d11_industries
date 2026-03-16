@@ -10,7 +10,7 @@
         },
         {
             "type": "path",
-            "url": "upstream-configuration"
+            "url": "upstream-configuration/locked"
         },
         {
             "url": "https://github.com/danny2p/pcc-drupal-module.git",

@@ -6,25 +6,14 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        {
-            "url": "https://github.com/danny2p/pcc-drupal-module.git",
-            "type": "git"
-        },
-        {
-            "url": "https://github.com/pantheon-systems/pcc-php-sdk.git",
-            "type": "git"
         }
     ],
     "require": {
-        "composer/installers": "^1.9",
-        "cweagans/composer-patches": "^1.7",
-        "drush/drush": "^13",
         "drupal/admin_toolbar": "^3.6",
         "drupal/ai": "^1.1",
         "drupal/ai_provider_openai": "^1.1",
         "drupal/core-composer-scaffold": "^11.2.4",
-        "drupal/core-recommended": "^11.2.4",
+        "drupal/core-recommended": "^11.3",
         "drupal/metatag": "^2.1",
         "drupal/pantheon_advanced_page_cache": "^2.3",
         "drupal/paragraphs": "^1.18",

@@ -66,7 +66,7 @@
         "psr/log": "3.0.2",
         "ralouphie/getallheaders": "3.0.3",
         "revolt/event-loop": "v1.0.8",
-        "sebastian/diff": "7.0.0",
+        "sebastian/diff": "6.0.2",
         "solarium/solarium": "6.4.1",
         "symfony/console": "v7.4.7",
         "symfony/dependency-injection": "v7.4.7",
@@ -113,7 +113,8 @@
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
-            "pantheon-systems/upstream-management": true
+            "pantheon-systems/upstream-management": true,
+            "php-http/discovery": true
         }
     }
 }

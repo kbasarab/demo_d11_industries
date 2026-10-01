@@ -23,7 +23,8 @@
         "pantheon-systems/drupal-integrations": "^11",
         "pantheon-systems/upstream-management": "^1.0",
         "drupal/pantheon_content_publisher": "^1.0",
-        "drupal/search_api_pantheon": "^8"
+        "drupal/search_api_pantheon": "^8",
+        "sebastian/diff": "^6.0.2"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -36,7 +37,8 @@
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "pantheon-systems/upstream-management": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "symfony/runtime": true
         }
     }
 }
